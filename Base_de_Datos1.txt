@@ -1,0 +1,317 @@
+BASE DE DATOS 
+
+En Base de Datos tenemso varios tipos de datos Ej
+ 
+TEXTO:
+*CHAR(n)
+*VARCHAR(n)
+*TEXT
+
+Estos se utilizan para guardar en memoria la cadena de caracteres
+lo q los diferencia es q CHAR es para cadenas pequeñas de 5 a 10 
+caracteres y VARCHAR es mas Dinamica almacena multiples caracteres
+sean grandes o pequeños .TEXT sirve para guardar ya muchos caracteres
+de 500 o mas como hacer un blog
+
+LOS tipo CHAR y VARCHAR se tienes que utilizar correctamente para asi 
+ayudar a guardar la informacion mas rapido CHAR SE UTILIZA ESTRICTAMENTE
+en cadena de carateres pequeños que sabemos que siempre van a tener 5 o 10 
+y VARCHA se utiliza para ya mas caracteres esto nos ayuda a aumentar la velocidad
+de nuestro guardado de datos
+
+NUMERICOS:
+*INTEGER
+*BIGINT
+*SMALLINT
+*DECIMAL(n,s)
+*NUMERIC(n,s)
+
+En los tipos numericos estan los INTEGER que son lso numeros enteros guardan solo
+numeros, al igual que el Tipo BIGINT que guarda numeros pero solo grandes cantidades
+de numeros y SMALLINT guarda cantidad de numeros que se le indique parecido al ejemplo 
+de arriba entre los tipos char y varchar.
+Con el DECIMAL Y EL NUMERIC se le pasan como parametro dos numeros uno entero y 
+otro decimal para asi poder crear numeros mas complejos estpo sirve para q la base 
+de datos calcule y de el resultado de manera correcta y mas rapida
+
+FECHA/HORA:
+*DATE
+*TIME
+*DATETIME
+*TIMESTAMP
+
+Estas herramientas nos sirven mucho para guardas las fechas y las horas de 
+nuestro proyecto o para borrarlas ,  etc.
+
+DATETIME Y TIMESTAMP como su normbe nos indica guardan los mismos datos pero en conjuncto 
+nos sirve para borrar algo con mas precicion 
+
+LOGICOS:
+*BOOLEAN
+
+El tipo boolean es un vinario solo puede tener dos balores TRUE o FALSE, o 
+0 y 1 
+
+CONSTRAINTS O RESTRINCIONES
+
+Las restrinciones nos ayudan Mucho en que tipo de dato pueden meter ala base de
+datos 
+Eje :
+
+*NOT NULL   : se Asegura que la Columna no tenga Valores nulos : estos significa
+              que no pueden pasar del campo sin rellenarlo esto sirve mucho en los
+              campos como nombre , numero de documento , etc. 
+
+*UNIQUE     : se asegura que cada valor en la colunma no se repita : es nesario para 
+              el email que solo puede tener uno por persona asi se guarda en la base 
+              de datos y ya cuando vaya a entrar tiene q usar el mismo email q uso al
+              registrarse.
+
+*PRIMARY KEY: es una combinacion de NOT NULL y UNIQUE : Nos da una gran ayuda por q si
+              usted esta metiendo un campo que es unico y quieres q no se repita como 
+              el id te es de gran ayuda este metodo , fuera de eso el PRIMARY KEY nos 
+              ayuda con las coneciones posteriores con las otras tablas o entre una entidad
+              y otra , cuando estamos declarando una llave PRIMARY KEY  se le LLama Indice
+
+*FOREING KEY: Identifica de manera unica una Tupla en otra Tabla : Se utliza para 
+              ineteratuar entre las tablas se le coloca FOREING KEY ala tabla que quieres
+              que interatue o se relaciones con la Tabla que lleva De nombre PRIMARY KEY al hacer esto 
+              le estas diciendo al interprete que las tablas interactuan entre ellas comprarten informacion
+
+*CHECK      : Se asegura de q el valor en la columna cumpla una condicion dada:
+              nos permite hacer la regla que queramos nos permite hacer reglas que el cliente nos
+              pida o q el negocio lo abmerite
+
+*DEFAULT    : coloca un valor por defecto cuando no hay un valor especifico 
+
+*INDEX      :se crea por columnas para permitir busquedas mas rapidas :
+             nos permite hacer busquedas mnas rapidas es muy util cuando tenes muchos registros
+
+
+NORMALIZACION :
+La normalización como su nombre lo indica nos ayuda a dejar todo de una forma normal.
+Esto obedece a las 12 reglas de Codd y nos permiten separar componentes en la base de datos:
+
+    *Primera forma normal (1FN): Atributos atómicos (Sin campos repetidos)
+    *Segunda forma normal (2FN): Cumple 1FN y cada campo de la tabla debe depender de una clave única.
+    *Tercera forma normal (3FN): Cumple 1FN y 2FN y los campos que NO son clave, NO deben tener dependencias.
+    *Cuarta forma normal (4FN): Cumple 1FN, 2FN, 3FN y los campos multivaluados se identifican por una clave única.
+
+
+un tema bastante importante en las RBD, como su nombre lo indica nos ayuda a dejar
+todo de una forma normal, este obedece alas 12 reglas de Edgar Codd,"Tener BBDD normaliza
+es como alcanzar el nirvana, la Plenitud"
+a cada una de estas reglas se les llama FORMA NORMAL (FN).
+
+Las Formas Normales Son Reglas :
+
+    *1FN : Primera forma normal: Atributos atómicos (Sin campos repetidos). Esto quiere decir que ningún 
+	   campo puede tener el mismo tipo de valor como varios campos materia (materia1, materia2,…).
+
+    *2FN : Segunda forma normal: Cumplir con 1FN y Cada campo de la tabla debe depender de una clave única. 
+	   Es decir en las tablas no se puede repetir los campos primarios ya que los mismos son únicos por 
+	   tanto si existe una relación uno a muchos se debe crear una tabla aparte donde cohabitaran la 
+	   llave primaria de la primera tabla y la llave primaria de la segunda tabla de esta forma logramos
+           relacionar de manera efectiva dos tablas respetando las llaves primarias.
+
+    *3FN : Tercera forma normal: Cumple 1FN y 2FN y los campos que NO son clave NO deben tener dependencias. 
+	   Esto nos indica que todos los campos de la tabla deben estar estrechamente relacionados con el 
+	   campo primario y no serlo de manera transitiva, por ejemplo, en una tabla torneos tenemos el código
+	   del torneo el nombre el ganador y la fecha de nacimiento del ganador, como observamos no podemos 
+	   tener la fecha de nacimiento del ganador en dicha tabla ya que no está relacionada para nada con el 
+   	   torneo y además existe la posibilidad que en varios registros el mismo ganador tenga diferentes fechas
+	   de nacimiento por lo cual no mantendría la consistencia de los datos.
+
+    *4FN : Cuarta forma normal: Cumplir 1FN 2FN y 3FN. Los campos multivaluados se identifican por una clave única.
+	   Cuando relacionamos dos tablas totalmente independientes cada una de la otra debemos relacionarlas a través
+	   de una tabla aparte de las mismas donde solo colocaremos las llaves primarias de cada tabla ya que colocar 
+	   cualquier otra información relacionada con las tablas implicaría repetir datos, además de hacer la tarea de 
+	   actualización de registros primarias más compleja, ya que por ejemplo si deseo actualizar el nombre del curso
+	   no solo lo tendría que hacer en la tabla cursos sino también en cada tabla donde coloque el nombre lo cual no 
+	   garantiza la integridad de la información, adiciona información innecesaria en los registros y hace más complejo
+	   el trabajo de administrar los datos.
+
+NOTA: URL_DE_LA_IMAGEN: "https://platzi.com/clases/1566-bd/20203-diagrama-fisico-normalizacion8011/"
+
+
+DML trata del contenido de la base de datos. 
+    Son las siglas de Data Manipulation Language y sus comandos son:
+
+    Insert: Inserta o agrega nuevos registros a la tabla.
+    
+
+    Update: Actualiza o modifica los datos que ya existen.
+    UpDate atualiza la tabla o el registro para informar que tabla hay que actualizar
+    se realiza el siguiente comando con el WHERE .
+    
+    EJ:Hay varios tipos de UPDATE :
+
+    *1 UPDATE people 
+       SET las_name = "Chavez", City= "Merida"
+       WHERE person_id = 1;
+       
+       Como puedes ver en el siguiente ejemplo se le hace la atulizacion ala tabla 
+       people  se le agrega los valores Nuevos en este caso "Chavez","Merida" en la
+       tabla person_id = 1 Osea ala primera persona de la tabla person_id
+    
+    *2 UPDATE people
+       SET  first_name = "Juan";
+       WHERE city = "Merida"
+
+       Esto se interpreta como a todas los campos o Ciudades que se llamen Merida 
+       cambiar el nombre a Juan cambia todos los nombre o id de las ciudades que se
+       llamen "Merida"
+
+    *3 UPDATE people
+       SET first_name = "Juan";
+    
+    Delete: Esta sentencia es riesgosa porque puede borrar el contenido de una tabla.
+	    con el siguiente comando : 
+	    
+    DELETE FROM people 
+    WHERE person_id = 1;
+
+    Este comando sirve para borrar el contenido especifico de una tabla , se lee
+    asi de la tabla people se escoje ala persona con el id 1 y se elimina 
+
+    DELETE FROM people;
+  
+    Este comando sirve para borrar todo en la tabla people Tener Mucho CUIDADO
+    con este comando 
+
+    
+    Select: Trae información de la base de datos. con el siguiente comando puedes
+            traer el nombre del usuario a pedir y el aepllido : 
+	    
+	    SELECT first_name, last_name FROM people; 
+
+
+
+Estos Comandos sirven para traer datos de la base de datos manda a traer los usuarios o los post 
+dependiendo de los comandos ejecutados 
+
+use platziblog;
+
+-- todos los usuarios tengan o no  un post relacionado
+ select*
+ from usuarios as u
+ left join posts as p
+ on u.id = p.usuario_id;
+ 
+-- todos los usuarios que no han hecho post
+ select*
+ from usuarios as u
+ left join posts as p
+ on u.id = p.usuario_id
+ where p.usuario_id IS NULL;
+
+-- todos los post esten o no asociados con un usuario
+ select*
+ from usuarios as u
+ right join posts as p
+ on u.id = p.usuario_id;
+ 
+ -- los post que no estan asociados con un usuario
+ select*
+ from usuarios as u
+ right join posts as p
+ on u.id = p.usuario_id
+ where u.id is null;
+ 
+ -- todos los usuarios que sí hayan hecho posts, con su respectivo post
+  select*
+ from usuarios as u
+ inner join posts as p
+ on u.id = p.usuario_id;
+ 
+ -- conjunto universo UNION
+  select*
+ from usuarios as u
+ left join posts as p
+ on u.id = p.usuario_id
+ UNION
+  select*
+ from usuarios as u
+ right join posts as p
+ on u.id = p.usuario_id;
+ 
+ -- los usuarios que no hayan hecho un post, junto con los post que no tiene usuario
+   select*
+ from usuarios as u
+ left join posts as p
+ on u.id = p.usuario_id
+ where p.usuario_id is NULL
+ UNION
+  select*
+ from usuarios as u
+ right join posts as p
+ on u.id = p.usuario_id
+ where p.usuario_id is NULL;
+		
+LIKE ‘%a%’, NO significa que deba tener la ‘a’ en el medio, sino que toma todos los 
+resultados que contengan la ‘a’ en su cadena.
+
+Ejemplo
+
+SELECT * FROM posts WHERE titulo LIKE ‘%ar%’
+
+Busca que la cadena que halla en titulo contenga ‘ar’ y no importa en que posición se
+encuentre, si la cadena ‘ar’ forma parte de titulo, entonces devolverá los registros 
+que cumplan esa condicion.
+
+WHERE
+Nos ayuda a filtrar registros (filas de la tabla). Podemos filtrar por ejemplo, a 
+partir de cierto numero de ID (con el operador de mayor o menor).
+    
+LIKE : cuando no conocemos la cadena exacta. Podemos filtrar segun alguna caracteristica. 
+       Por ejemplo, como explica en el video:
+           
+		       *WHERE titulo LIKE ‘%escandalo%’ lo que hace es buscar aquellos titulos que tengan la palabra
+			escandalo en alguna parte. Sin embargo, como los signos de porcentaje indican que hay algo mas, 
+			si quitamos, por ejemplo, el del final (quedando ‘%escandalo’), estaremos buscando aquellos 
+			titulos que terminen con la palabra ‘escandalo’, ya que indicamos que despues de esta palabra 
+			no hay nada mas.
+    
+BETWEEN : la traduccion de esta palabra al español es ‘entre’. Por lo tanto, como podemos imaginar,
+filtrara entre dos valores a designar. Por ejemplo:
+			
+			*WHERE fechaDePublicacion BETWEEN ‘2019-01-01’ AND ‘2019-01-10’ filtrara las publicaciones con 
+			fecha de publicacion entre el 1 de enero de 2019 y 10 de enero de 2019. Puede utilizarse tambien 
+			con valores numericos (y por lo tanto, por ejemplo, con los IDs).
+
+SELECT * FROM posts
+WHERE MONTH (Fecha_de_publicacion) = "04";
+este comando te traera todos los archivos que se reportaron en ese mes o dia en especial 
+
+https://www.generatedata.com/ url para generar las tablas de base de datos 
+
+Para poder conectarse ala base de datos desde el visualStudioCo o desde el codigo 
+se ejecuta el siguientre comando 
+
+ def run_query(self, query,parameters = ()):
+        with sqlite3.connect(self.db_name) as conn:
+            cursor = conn.cursor()
+            result = cursor.execute(query,parameters)
+            conn.commit()
+        return result
+
+con este comando ya estas llamando 
+
+
+Estructura incial de un query :
+
+SELECT city , count(*) as total 
+
+FROM people
+
+WHERE activate = true
+
+GROUP BY  city 
+
+ORDER BY total DESC	
+
+HAVING total >= 2;
+
+..
+
+
