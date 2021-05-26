@@ -122,3 +122,47 @@ Segundo: Verificar que la URL se haya guardado correctamente:
 	$ git push origin master
 	
 #### Esta lectura continua con lo antes dicho de como configuar tu llave  [ link llaves ssh](https://docs.github.com/es/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account "link llaves ssh")
+
+
+### CAMBIOS DE GITHUB DE  RAMA "MASTER" A RAMA "MAIN"
+
+##### CONFIGURANDO LAS LLAVES SSH EN LOCAL 
+Windows/Linux
+En nuestra consola de git bash(Windows) o nuestra consola (Linux) nos movemos a home, por que las llaves pueden ser para todos los proyectos en los que trabajemos.
+
+	 Luego generamos las llaves con ssh-keygen seguidos de los parámetros: -t
+Aquí ponemos el algoritmo de encriptación que queremos.
+
+	 En este caso ocuparemos la más común que es RSA, -b 
+Aquí vamos a especificar que tan compleja es la llave. 
+
+	 Seguido de -C 
+Aquí vamos a poner el email al que se va a configurar la llave.
+
+####  EJE:
+`$ ssh-keygen -t rsa -b 4096 -C “tu_email@gmail.com” `
+
+
+
+
+Nos pide la ruta en la que se va a guardar las credenciales, en este caso damos enter, para que las guarde en home:
+
+![](https://krisleon99.github.io/portfolio/img/bg/1.png)
+
+Después nos pide una contraseña con espacios (es recomendable ponerla)
+
+![](https://krisleon99.github.io/portfolio/img/bg/2.png)
+
+Volvemos a ingresar la contraseña
+
+![](https://krisleon99.github.io/portfolio/img/bg/3.png)
+
+
+
+Nos genera la llave privada: id_rsa en una carpeta oculta .ssh dentro del directorio home y la llave pública id_rsa.pub
+
+![](https://krisleon99.github.io/portfolio/img/bg/4.png)
+
+Una vez obtenido el resultado sabremos que hemos creado nuestras llaves (pública y privada) SSH satisfactoriamente:
+
+![](https://krisleon99.github.io/portfolio/img/bg/5.png)
