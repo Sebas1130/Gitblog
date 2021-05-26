@@ -57,7 +57,7 @@ El segundo comando es  git reset  --soft ES un poco mas seguro por que que manti
 
 	$ git reset + ID commit --soft
 
-##### GIT RESET VS GIT RM 
+#### GIT RESET VS GIT RM 
 
 	$ git rm
 Este comando nos ayuda a eliminar archivos de Git sin eliminar su historial del sistema de versiones. Esto quiere decir que si necesitamos recuperar el archivo solo debemos “viajar en el tiempo” y recuperar el último commit antes de borrar el archivo en cuestión.
@@ -74,7 +74,7 @@ Elimina los archivos de Git y del disco duro. Git siempre guarda todo, por lo qu
 Sirve para ver los cambios realizados a un archivo despues de hacerle commit o hacerle un git add muestra los cambios cuantos cambios se realizaron, quien los realizo y tambien la fecha. 
 
 # MODULO #2  
-##### FLUJO DE TRABAJO BASICO CON UN REPOSITORIO REMOTO 
+#### FLUJO DE TRABAJO BASICO CON UN REPOSITORIO REMOTO 
 
 Lo primero que debes hacer es traer el repositorio del servidor donde esta montado una copia eso lo puedes hacer com :
 
@@ -99,7 +99,7 @@ También usamos el comando git merge con servidores remotos. Lo necesitamos para
 	$ git pull 
 Básicamente, git fetch y git merge al mismo tiempo.
 
-##### PASOS PARA CONECTARTE CON EL SERVIDOR REMOTO CON NOMBRE ORIGIN 
+#### PASOS PARA CONECTARTE CON EL SERVIDOR REMOTO CON NOMBRE ORIGIN 
 
 Primero: Guardar la URL del repositorio de GitHub con el nombre de origin.
  El comando es el siguiente para guardar el repositorio origin:
