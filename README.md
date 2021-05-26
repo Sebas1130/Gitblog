@@ -73,7 +73,7 @@ Elimina los archivos de Git y del disco duro. Git siempre guarda todo, por lo qu
 	$ git diff  
 Sirve para ver los cambios realizados a un archivo despues de hacerle commit o hacerle un git add muestra los cambios cuantos cambios se realizaron, quien los realizo y tambien la fecha. 
 
-
+# MODULO #2  
 ##### FLUJO DE TRABAJO BASICO CON UN REPOSITORIO REMOTO 
 
 Lo primero que debes hacer es traer el repositorio del servidor donde esta montado una copia eso lo puedes hacer com :
@@ -98,3 +98,25 @@ También usamos el comando git merge con servidores remotos. Lo necesitamos para
 
 	$ git pull 
 Básicamente, git fetch y git merge al mismo tiempo.
+
+##### PASOS PARA CONECTARTE CON EL SERVIDOR REMOTO CON NOMBRE ORIGIN 
+
+Primero: Guardar la URL del repositorio de GitHub con el nombre de origin.
+ El comando es el siguiente para guardar el repositorio origin:
+ 
+ 	$ git remote add origin URL.
+
+Segundo: Verificar que la URL se haya guardado correctamente:
+
+	$ git remote
+	$ git remote -v
+
+ Tercero: Traer la versión del repositorio remoto y hacer merge para crear un commit con los archivos de ambas partes. Podemos usar git fetch y git merge o solo el git pull con el 
+ flag --allow-unrelated-histories:
+ 
+	
+	$ git pull origin master --allow-unrelated-histories
+
+ Por último, ahora sí podemos hacer git push para guardar los cambios de nuestro repositorio local en GitHub:
+ 
+	$ git push origin master
